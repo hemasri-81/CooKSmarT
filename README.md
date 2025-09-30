@@ -13,25 +13,8 @@ An intelligent web application designed to recommend recipes based purely on the
    pip install -r requirements.txt
 
 3. Structure
-   CooKSmarT/
-│── app.py
-│── models.py
-│── graphs.py
-│── engine.py
-│── db_init.py
-│── requirements.txt
-│── README.md
-│── .gitignore
-│
-├── templates/
-│    ├── base.html
-│    └── index.html
-│
-└── static/
-     ├── css/
-     │   └── style.css
-     └── js/
-         └── main.js
+   <img width="314" height="478" alt="Screenshot 2025-09-30 at 1 44 26 PM" src="https://github.com/user-attachments/assets/2348ca9e-9858-487f-973e-6f326b2627d5" />
+
 4. Features:
 * Instantly recommends recipes based on pantry ingredients
 * Identifies what’s missing and suggests clever substitutions
