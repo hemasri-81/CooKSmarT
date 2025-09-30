@@ -13,6 +13,16 @@ An intelligent web application designed to recommend recipes based purely on the
    pip install -r requirements.txt
 
 3. Structure
+
+
+
+
+
+
+
+
+
+
    <img width="314" height="478" alt="Screenshot 2025-09-30 at 1 44 26 PM" src="https://github.com/user-attachments/assets/2348ca9e-9858-487f-973e-6f326b2627d5" />
 
 4. Features:
