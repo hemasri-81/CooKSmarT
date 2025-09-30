@@ -1,0 +1,250 @@
+/* static/css/style.css */
+
+/* NOTE: include this in your HTML head:
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+*/
+
+/* ---------- Variables (easy to tweak) ---------- */
+:root{
+    --bg-start: #f9f9f9;
+    --bg-end:   #eaf7ff;
+    --primary-1: #6a3be1;
+    --primary-2: #6935da;
+    --accent-1: #8542e9;
+    --accent-2: #852fdc;
+    --muted: #666;
+    --card-bg: #ffffff;
+    --text: #222;
+    --radius-lg: 15px;
+    --radius-pill: 50px;
+    --shadow-1: 0 6px 18px rgba(0,0,0,0.06);
+    --shadow-hover: 0 8px 20px rgba(0,0,0,0.12);
+    --footer-bg: #343a40;
+    --footer-text: #ddd;
+    --focus-color: #ffd54f; /* accessible focus accent (tweak as needed) */
+  }
+  
+  /* ---------- Global Body Styling ---------- */
+  html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  *,*::before,*::after{box-sizing:inherit;}
+  
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    color: var(--text);
+    min-height: 100vh;
+    margin: 0;
+    /* keep bottom padding equal to footer height to avoid content being hidden */
+    padding-bottom: 76px; /* adjust if footer height changes */
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.4;
+  }
+  
+  /* ---------- Navbar ---------- */
+  .navbar {
+    background: linear-gradient(90deg, var(--primary-1), var(--primary-2));
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    padding: 0.6rem 1rem;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #fff !important;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+  }
+  
+  /* Make brand scale on small screens */
+  @media (max-width: 480px){
+    .navbar-brand{
+      font-size: 1.25rem;
+    }
+  }
+  
+  /* ---------- Headings ---------- */
+  h2, h4 {
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  
+  /* ---------- Cards ---------- */
+  .card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+    background: var(--card-bg);
+    overflow: hidden;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  
+  /* results container cards hover */
+  #results .card {
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  }
+  
+  #results .card:hover,
+  #results .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* ---------- Buttons ---------- */
+  .btn-gradient {
+    background: linear-gradient(90deg, #622bdb, #8935de);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+  }
+  
+  .btn-gradient:hover,
+  .btn-gradient:active {
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, #8d33db, #832edd);
+  }
+  
+  /* Outline variant (pill) */
+  .btn-outline-secondary {
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent;
+    padding: 0.45rem 0.9rem;
+  }
+  
+  /* ---------- Inputs ---------- */
+  input.form-control,
+  textarea.form-control,
+  select.form-control {
+    border: 2px solid #8a45eb;
+    border-radius: var(--radius-pill);
+    padding: 0.75rem 1rem;
+    font-size: 1.05rem;
+    outline: none;
+    background: #fff;
+    width: 100%;
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+  }
+  
+  /* focus accessibility */
+  input.form-control:focus,
+  textarea.form-control:focus,
+  select.form-control:focus {
+    box-shadow: 0 0 0 4px rgba(138,69,235,0.12);
+    border-color: #6b2fe6;
+  }
+  
+  /* make inputs slightly smaller on very small screens */
+  @media (max-width: 420px){
+    input.form-control{ font-size: 1rem; padding: 0.6rem 0.9rem; }
+  }
+  
+  /* ---------- Footer ---------- */
+  /* Default: footer anchored at page bottom but not fixed (prevents overlap) */
+  footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    width: 100%;
+    position: relative; /* not fixed by default */
+    z-index: 10;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+  }
+  
+  /* If you explicitly want a fixed footer: add the class .footer-fixed to footer element
+     <footer class="footer-fixed"> ... </footer>
+     and keep body { padding-bottom } equal to the footer height */
+  footer.footer-fixed{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Footer links */
+  footer a {
+    color: #b79af2;
+    text-decoration: none;
+  }
+  footer a:hover{ text-decoration: underline; }
+  
+  /* ---------- Accessibility: Focus states ---------- */
+  /* visible focus only when using keyboard (modern browsers) */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  
+  /* provide focus ring for common interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255,213,79,0.12);
+  }
+  
+  /* ---------- Utility / Layout helpers ---------- */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* responsive columns simple helper */
+  .row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .col {
+    flex: 1 1 260px;
+  }
+  
+  /* small card padding */
+  .card .card-body {
+    padding: 1rem;
+  }
+  
+  /* ---------- Reduced motion preference ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* ---------- Minor tweaks for wide screens ---------- */
+  @media(min-width: 1200px){
+    body { font-size: 16px; }
+  }
+  
+  /* ---------- Color contrast helper (optional) ---------- */
+  /* If text in cards needs stronger contrast, add .high-contrast to container */
+  .high-contrast { color: #111; }
+  

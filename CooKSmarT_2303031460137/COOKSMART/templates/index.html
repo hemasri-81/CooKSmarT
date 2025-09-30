@@ -1,0 +1,64 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+{% block content %}
+  <div class="row align-items-start">
+    <!-- Input Section -->
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-lg border-0 rounded-4 p-4">
+        <h2 class="mb-3 text-gradient">Enter your pantry ingredients</h2>
+        <p class="text-muted">Type comma-separated items (e.g. <em>egg, milk, flour, butter</em>)</p>
+        <div class="mb-3">
+          <input id="ingredients-input" class="form-control form-control-lg rounded-pill shadow-sm" 
+                 placeholder="e.g. egg, milk, flour, butter">
+        </div>
+        <div class="d-flex">
+          <button id="suggest-btn" class="btn btn-lg btn-gradient flex-grow-1 me-2 shadow-sm">✨ Suggest Recipes</button>
+          <button id="example-btn" class="btn btn-lg btn-outline-secondary flex-grow-1 shadow-sm">🎲 Try Example</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="col-lg-6">
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-light">
+        <h4 class="mb-3">🍳 Suggestions</h4>
+        <div id="results" class="row gy-3">
+          <div class="col-12">
+            <div class="alert alert-info shadow-sm rounded-3">
+              Enter ingredients and press <strong>Suggest Recipes</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra Styles -->
+  <style>
+    .text-gradient {
+      background: linear-gradient(90deg, #4441eaff, #4553e9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #753be9ff, #663ee9ff);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-gradient:hover {
+      background: linear-gradient(90deg, #3f50ebff, #7933eaff);
+      color: #fff;
+    }
+
+    input.form-control {
+      border: 2px solid #4e56f4ff;
+    }
+
+    .card {
+      background: #ffffff;
+    }
+  </style>
+{% endblock %}
